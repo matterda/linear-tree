@@ -559,15 +559,14 @@ class lineartree.LinearBoostRegressor(base_estimator, *, loss = 'linear', n_esti
 
     The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided. 
   
-- ```max_features : int, float or {"auto", "sqrt", "log2"}, default=None```
+- ```max_features : int, float or {"sqrt", "log2", None}, default=1.0```
   
     The number of features to consider when looking for the best split:
     - If int, then consider `max_features` features at each split.
     - If float, then `max_features` is a fraction and `int(max_features * n_features)` features are considered at each split.
-    - If "auto", then `max_features=n_features`.
     - If "sqrt", then `max_features=sqrt(n_features)`.
     - If "log2", then `max_features=log2(n_features)`.
-    - If None, then `max_features=n_features`.
+    - If None or 1.0, then `max_features=n_features`.
     Note: the search for a split does not stop until at least one valid partition of the node samples is found, even if it requires to effectively inspect more than ``max_features`` features.  
   
 - ```max_leaf_nodes : int, default=None```
@@ -701,15 +700,14 @@ class lineartree.LinearBoostClassifier(base_estimator, loss = 'hamming', n_estim
 
     The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided. 
   
-- ```max_features : int, float or {"auto", "sqrt", "log2"}, default=None```
+- ```max_features : int, float or {"sqrt", "log2", None}, default=1.0```
   
     The number of features to consider when looking for the best split:
     - If int, then consider `max_features` features at each split.
     - If float, then `max_features` is a fraction and `int(max_features * n_features)` features are considered at each split.
-    - If "auto", then `max_features=n_features`.
     - If "sqrt", then `max_features=sqrt(n_features)`.
     - If "log2", then `max_features=log2(n_features)`.
-    - If None, then `max_features=n_features`.
+    - If None or 1.0, then `max_features=n_features`.
     
     Note: the search for a split does not stop until at least one valid partition of the node samples is found, even if it requires to effectively inspect more than ``max_features`` features.  
   
@@ -809,7 +807,7 @@ class lineartree.LinearBoostClassifier(base_estimator, loss = 'hamming', n_estim
         
 ## LinearForestRegressor
 ```
-class lineartree.LinearForestRegressor(base_estimator, *, n_estimators=100, max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0., max_features="auto", max_leaf_nodes=None, min_impurity_decrease=0., bootstrap=True, oob_score=False, n_jobs=None, random_state=None, ccp_alpha=0.0, max_samples=None)
+class lineartree.LinearForestRegressor(base_estimator, *, n_estimators=100, max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0., max_features=1.0, max_leaf_nodes=None, min_impurity_decrease=0., bootstrap=True, oob_score=False, n_jobs=None, random_state=None, ccp_alpha=0.0, max_samples=None)
 ```
 
 #### Parameters:
@@ -844,15 +842,14 @@ class lineartree.LinearForestRegressor(base_estimator, *, n_estimators=100, max_
 
     The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided.
     
-- ```max_features : {"auto", "sqrt", "log2"}, int or float, default="auto"```
+- ```max_features : {"sqrt", "log2", None}, int or float, default=1.0```
 
     The number of features to consider when looking for the best split:    
     - If int, then consider `max_features` features at each split.
     - If float, then `max_features` is a fraction and `round(max_features * n_features)` features are considered at each split.
-    - If "auto", then `max_features=n_features`.
     - If "sqrt", then `max_features=sqrt(n_features)`.
     - If "log2", then `max_features=log2(n_features)`.
-    - If None, then `max_features=n_features`
+    - If None or 1.0, then `max_features=n_features`
     
     Note: the search for a split does not stop until at least one valid partition of the node samples is found, even if it requires to effectively inspect more than ``max_features`` features.
     
@@ -998,7 +995,7 @@ class lineartree.LinearForestRegressor(base_estimator, *, n_estimators=100, max_
 
 ## LinearForestClassifier
 ```
-class lineartree.LinearForestClassifier(base_estimator, *, n_estimators=100, max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0., max_features="auto", max_leaf_nodes=None, min_impurity_decrease=0., bootstrap=True, oob_score=False, n_jobs=None, random_state=None, ccp_alpha=0.0, max_samples=None)
+class lineartree.LinearForestClassifier(base_estimator, *, n_estimators=100, max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0., max_features=1.0, max_leaf_nodes=None, min_impurity_decrease=0., bootstrap=True, oob_score=False, n_jobs=None, random_state=None, ccp_alpha=0.0, max_samples=None)
 ```
 
 #### Parameters:
@@ -1033,15 +1030,14 @@ class lineartree.LinearForestClassifier(base_estimator, *, n_estimators=100, max
 
     The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided.
     
-- ```max_features : {"auto", "sqrt", "log2"}, int or float, default="auto"```
+- ```max_features : {"sqrt", "log2", None}, int or float, default=1.0```
 
     The number of features to consider when looking for the best split:    
     - If int, then consider `max_features` features at each split.
     - If float, then `max_features` is a fraction and `round(max_features * n_features)` features are considered at each split.
-    - If "auto", then `max_features=n_features`.
     - If "sqrt", then `max_features=sqrt(n_features)`.
     - If "log2", then `max_features=log2(n_features)`.
-    - If None, then `max_features=n_features`.
+    - If None or 1.0, then `max_features=n_features`.
     Note: the search for a split does not stop until at least one
     valid partition of the node samples is found, even if it requires to
     effectively inspect more than ``max_features`` features.
